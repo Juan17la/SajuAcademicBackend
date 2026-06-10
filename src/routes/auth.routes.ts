@@ -4,16 +4,19 @@ import {
   loginHandler,
   refreshHandler,
   changePasswordHandler,
+  forgotPasswordHandler,
+  resetPasswordHandler,
 } from '../controllers/auth.controller.js';
 
-// router definition. In fastify an Instance is like a router in express
 export async function authRoutes(app: FastifyInstance) {
   app.post('/register', registerHandler);
   app.post('/login', loginHandler);
   app.post('/refresh', refreshHandler);
+  app.post('/forgot-password', forgotPasswordHandler);
+  app.post('/reset-password', resetPasswordHandler);
   app.post(
     '/change-password',
-    { onRequest: [app.authenticate] }, // middleware of auth??
+    { onRequest: [app.authenticate] },
     changePasswordHandler
   );
 }
