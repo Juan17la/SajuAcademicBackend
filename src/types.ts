@@ -2,7 +2,7 @@ import type { FastifyRequest } from 'fastify';
 
 declare module '@fastify/jwt' {
   interface FastifyJWT {
-    payload: { id: number; email: string };
+    payload: { id: string; email: string };
   }
 }
 
